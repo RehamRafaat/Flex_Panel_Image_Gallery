@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>D vs O flex gallery</title>
+        <link href="http://fonts.cdnfonts.com/css/harry-potter" rel="stylesheet">
+        <style>
+            @import url('http://fonts.cdnfonts.com/css/harry-potter');
+            *{
+                font-family: 'Harry Potter', sans-serif;
+            }
+            html{
+                box-sizing: border-box;
+                background-image: linear-gradient(to right, #1A472A , #2A623D,#5D5D5D,#740001,#AE0001,#D3A625);
+            }
+            body{
+                margin:0;
+            }
+            *, *:before, *:after{
+                box-sizing: inherit;
+            }
+            .panels{
+                min-height: 100vh;
+                overflow: hidden;
+                display: flex;
+            }
+            .panel{
+                color:white;
+                flex: 1;
+                text-align: center;
+                align-items: center;
+                transition:
+                    font-size 0.7s cubic-bezier(0.61,-0.19,0.7,-0.11),
+                    flex 0.7s cubic-bezier(0.61,-0.19,0.7,-0.11),
+                    background 0.2s;
+                font-size: 20px;
+                background-size: cover;
+                background-position: center;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+            }
+            .panel .open{
+                flex: 5;
+                font-size: 4em;
+            }
+            .panel1{
+                background-image: url(img/Voldemort.png);
+            }
+            .panel2{
+                background-image: url(img/malfoy.png);
+            }
+            .panel3{
+                background-image: url(img/harry_potter2.png);
+            }
+            .panel4{
+                background-image: url(img/hermonie.png);
+            }
+            .panel5{
+                background-image: url(img/dumbldor.png);
+            }
+            .panel > *{
+                margin: 0;
+                width: 100%;
+                transition: transform 0 5s;
+                flex: 1 0 auto;
+                justify-content: center;
+                align-items: center;
+            }
+             .panel > *:first-child{
+                 transform: translateY(-100%);
+            }
+            .panel > *:last-child{
+                 transform: translateY(100%);
+            }
+             .panel .open-active > *:Last-child{
+                 transform: translateY(0);
+            }
+            .panel .open-active > *:first-child{
+                 transform: translateY(0);
+            }
+            .panel p{
+                font-size: 1em;
+            }
+            .panel p:nth-child(2){
+                font-size: 4em;
+            }
+        </style>
+    </head>
+    <body>
+       <div class="panels">
+            <div class="panel panel1 open-active">
+                <p>Dark Lord</p>
+                <p>Voldmort</p>
+                <p>Tom Riddle</p>
+            </div>
+           
+            <div class="panel panel2">
+                <p>Granger Enemy</p>
+                <p>Draco</p>
+                <p>Son of lucious Malfoy</p>
+            </div>
+            <div class="panel panel3">
+                <p>The chosen one</p>
+                <p>Harry Potter</p>
+                <p>The boy who lived</p>
+            </div>
+            <div class="panel panel4">
+                <p>The powerful witch</p>
+                <p>Granger</p>
+                <p>Draco Enemy because of it's muggle born</p>
+            </div>
+          
+            <div class="panel panel5">
+                <p>Head of Hogwarts</p>
+                <p>Dumbldour</p>
+                <p>The most powerful wizerd in the magic world, the owner of the elder wond</p>
+            </div>
+        </div>
+        <script>
+            const panels = document.querySelectorAll('.panel');
+            function toggleopen()
+            {
+                console.log("hello");
+                this.classList.toggle('open');
+            }
+            panels.forEach(panel => panel.addEventListener('click',toggleopen));
+        </script>
+    </body>
+</html>
